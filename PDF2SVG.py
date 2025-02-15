@@ -24,7 +24,8 @@ def pdf_to_svg(pdf_path, output_folder):
             svg_data = page.get_svg_image()
 
             # 生成 SVG 文件名，保留原 PDF 名并加上页码
-            svg_filename = os.path.join(output_folder, f"{pdf_name}_page_{page_num + 1}.svg")
+            name = os.path.basename(pdf_path).split(".")[0]
+            svg_filename = os.path.join(output_folder, f"{name}_page_{page_num + 1}.svg")
             with open(svg_filename, 'w', encoding='utf-8') as svg_file:
                 svg_file.write(svg_data)
 
